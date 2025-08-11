@@ -1,0 +1,92 @@
+Checkpoint loaded successfully from '/var/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/src/models/utae_paps_models/model.pth.tar'
+Using the following dataset split:
+Train years: [2018, 2019], Val years: [2020], Test years: [2021]
+Sanity Checking: 0it [00:00, ?it/s]
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1]
+   | Name               | Type                       | Params
+-------------------------------------------------------------------
+0  | loss               | BCEWithLogitsLoss          | 0
+1  | train_f1           | BinaryF1Score              | 0
+2  | val_f1             | BinaryF1Score              | 0
+3  | test_f1            | BinaryF1Score              | 0
+4  | test_avg_precision | BinaryAveragePrecision     | 0
+5  | val_avg_precision  | BinaryAveragePrecision     | 0
+6  | test_precision     | BinaryPrecision            | 0
+7  | test_recall        | BinaryRecall               | 0
+8  | test_iou           | BinaryJaccardIndex         | 0
+9  | conf_mat           | BinaryConfusionMatrix      | 0
+10 | test_pr_curve      | BinaryPrecisionRecallCurve | 0
+11 | model              | UTAE                       | 1.1 M
+-------------------------------------------------------------------
+1.1 M     Trainable params
+0         Non-trainable params
+1.1 M     Total params
+
+
+Sanity Checking DataLoader 0:   0%|                                                                      | 0/2 [00:00<?, ?it/s]
+/home/lornjaeger/distrobox/homes/dev/projects/wts-training/.venv/lib64/python3.10/site-packages/torchmetrics/utilities/prints.py:43: TorchMetricsUserWarning: You are trying to use a metric in deterministic mode on GPU that uses `torch.cumsum`, which is currently not supported. The tensor will be copied to the CPU memory to compute it and then copied back to GPU. Expect some slowdowns.
+  warnings.warn(*args, **kwargs)  # noqa: B028
+
+Epoch 0:   3%|▊                       | 2/62 [00:11<05:37,  5.62s/it, v_num=3g7d, train_loss_step=1.280, train_f1_step=0.00163]
+/home/lornjaeger/distrobox/homes/dev/projects/wts-training/.venv/lib64/python3.10/site-packages/torch/autograd/__init__.py:200: UserWarning: reflection_pad2d_backward_cuda does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True, warn_only=True)'. You can file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation. (Triggered internally at ../aten/src/ATen/Context.cpp:71.)
+  Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/home/lornjaeger/distrobox/homes/dev/projects/wts-training/.venv/lib64/python3.10/site-packages/torch/autograd/__init__.py:200: UserWarning: upsample_bilinear2d_backward_out_cuda does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True, warn_only=True)'. You can file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation. (Triggered internally at ../aten/src/ATen/Context.cpp:71.)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 0:  94%|█████████████████████▌ | 58/62 [00:47<00:03,  1.22it/s, v_num=3g7d, train_loss_step=1.000, train_f1_step=0.00906]
+/home/lornjaeger/distrobox/homes/dev/projects/wts-training/.venv/lib64/python3.10/site-packages/pytorch_lightning/trainer/call.py:54: UserWarning: Detected KeyboardInterrupt, attempting graceful shutdown...
+  rank_zero_warn("Detected KeyboardInterrupt, attempting graceful shutdown...")
+Traceback (most recent call last):
+  File "/var/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/src/train.py", line 130, in <module>
+    main()
+  File "/var/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/src/train.py", line 107, in main
+    cli.trainer.test(cli.model, cli.datamodule, ckpt_path=ckpt)
+  File "/home/lornjaeger/distrobox/homes/dev/projects/wts-training/.venv/lib64/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 706, in test
+    return call._call_and_handle_interrupt(
+  File "/home/lornjaeger/distrobox/homes/dev/projects/wts-training/.venv/lib64/python3.10/site-packages/pytorch_lightning/trainer/call.py", line 44, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "/home/lornjaeger/distrobox/homes/dev/projects/wts-training/.venv/lib64/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 746, in _test_impl
+    ckpt_path = self._checkpoint_connector._select_ckpt_path(
+  File "/home/lornjaeger/distrobox/homes/dev/projects/wts-training/.venv/lib64/python3.10/site-packages/pytorch_lightning/trainer/connectors/checkpoint_connector.py", line 107, in _select_ckpt_path
+    ckpt_path = self._parse_ckpt_path(
+  File "/home/lornjaeger/distrobox/homes/dev/projects/wts-training/.venv/lib64/python3.10/site-packages/pytorch_lightning/trainer/connectors/checkpoint_connector.py", line 174, in _parse_ckpt_path
+    raise ValueError(
+ValueError: `.test(ckpt_path="best")` is set but `ModelCheckpoint` is not configured to save the best model.
+[1m-------------------------------------------------------------------------------------------------------------------------------
+[1mtrain.py 130 <module>
+[1mmain()
+[1mtrain.py 107 main
+[1mcli.trainer.test(cli.model, cli.datamodule, ckpt_path=ckpt)
+[1mtrainer.py 706 test
+[1mreturn call._call_and_handle_interrupt(
+[1mcall.py 44 _call_and_handle_interrupt
+[1mreturn trainer_fn(*args, **kwargs)
+[1mtrainer.py 746 _test_impl
+[1mckpt_path = self._checkpoint_connector._select_ckpt_path(
+[1mcheckpoint_connector.py 107 _select_ckpt_path
+[1mckpt_path = self._parse_ckpt_path(
+[1mcheckpoint_connector.py 174 _parse_ckpt_path
+[1mraise ValueError(
+[1mValueError:
+
+Epoch 0:  97%|██████████████████████▎| 60/62 [00:48<00:01,  1.23it/s, v_num=3g7d, train_loss_step=1.090, train_f1_step=0.00943]

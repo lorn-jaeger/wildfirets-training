@@ -1,0 +1,100 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    python_version: 3.10.18
+    cli_version: 0.15.3
+    framework: huggingface
+    huggingface_version: 4.54.1
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1753910927.104955
+    t:
+      1:
+      - 1
+      - 9
+      - 11
+      - 41
+      - 49
+      - 55
+      - 63
+      - 74
+      2:
+      - 1
+      - 9
+      - 11
+      - 41
+      - 49
+      - 55
+      - 63
+      - 74
+      3:
+      - 3
+      - 7
+      - 13
+      - 23
+      4: 3.10.18
+      5: 0.15.3
+      6: 4.54.1
+      8:
+      - 5
+    m:
+    - 1: trainer/global_step
+      6:
+      - 3
+    - 1: train_loss_epoch
+      6:
+      - 3
+      7:
+      - 1
+    - 1: val_loss
+      6:
+      - 3
+      7:
+      - 1
+    - 1: train_f1_epoch
+      6:
+      - 3
+      7:
+      - 2
+    - 1: val_f1
+      6:
+      - 3
+      7:
+      - 2
+    - 1: val_avg_precision
+      6:
+      - 3
+      7:
+      - 2
+n_channels:
+  desc: null
+  value: 40
+flatten_temporal_dimension:
+  desc: null
+  value: false
+pos_class_weight:
+  desc: null
+  value: 964.2632335191678
+loss_function:
+  desc: null
+  value: BCE
+use_doy:
+  desc: null
+  value: true
+crop_before_eval:
+  desc: null
+  value: false
+required_img_size:
+  desc: null
+  value: null
+alpha_focal:
+  desc: null
+  value: null
+f1_threshold:
+  desc: null
+  value: null
+encoder_weights:
+  desc: null
+  value: pastis

@@ -1,0 +1,218 @@
+{
+    "os": "Linux-6.14.9-300.fc42.x86_64-x86_64-with-glibc2.41",
+    "python": "3.10.18",
+    "heartbeatAt": "2025-07-31T00:10:40.877088",
+    "startedAt": "2025-07-31T00:10:40.323225",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--config=cfgs/UTAE/all_features.yaml",
+        "--trainer=cfgs/trainer_single_gpu.yaml",
+        "--data=cfgs/data_multitemporal_full_features.yaml",
+        "--seed_everything=0",
+        "--trainer.max_epochs=1000",
+        "--do_test=True",
+        "--data.data_di",
+        "data/"
+    ],
+    "state": "running",
+    "program": "/var/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/src/train.py",
+    "codePath": "src/train.py",
+    "git": {
+        "remote": "https://github.com/slahrichi/WildfireSpreadTS.git",
+        "commit": "1be746914619caa571e6ef8e29e7f97531cbcd0b"
+    },
+    "email": "lornjaeger@proton.me",
+    "root": "/var/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS",
+    "host": "johnson-lab",
+    "username": "lornjaeger",
+    "executable": "/home/lornjaeger/distrobox/homes/dev/projects/wts-training/.venv/bin/python",
+    "cpu_count": 16,
+    "cpu_count_logical": 32,
+    "cpu_freq": {
+        "current": 1830.566875,
+        "min": 1434.0,
+        "max": 4580.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3056.179,
+            "min": 1434.0,
+            "max": 4580.0
+        },
+        {
+            "current": 2507.99,
+            "min": 1434.0,
+            "max": 4580.0
+        },
+        {
+            "current": 1434.0,
+            "min": 1434.0,
+            "max": 4580.0
+        },
+        {
+            "current": 1434.0,
+            "min": 1434.0,
+            "max": 4580.0
+        },
+        {
+            "current": 1434.0,
+            "min": 1434.0,
+            "max": 4580.0
+        },
+        {
+            "current": 1434.0,
+            "min": 1434.0,
+            "max": 4580.0
+        },
+        {
+            "current": 2519.081,
+            "min": 1434.0,
+            "max": 4580.0
+        },
+        {
+            "current": 3163.875,
+            "min": 1434.0,
+            "max": 4580.0
+        },
+        {
+            "current": 1434.0,
+            "min": 1434.0,
+            "max": 4580.0
+        },
+        {
+            "current": 1434.0,
+            "min": 1434.0,
+            "max": 4580.0
+        },
+        {
+            "current": 2433.832,
+            "min": 1434.0,
+            "max": 4580.0
+        },
+        {
+            "current": 3108.496,
+            "min": 1434.0,
+            "max": 4580.0
+        },
+        {
+            "current": 1434.0,
+            "min": 1434.0,
+            "max": 4580.0
+        },
+        {
+            "current": 1434.0,
+            "min": 1434.0,
+            "max": 4580.0
+        },
+        {
+            "current": 1434.0,
+            "min": 1434.0,
+            "max": 4580.0
+        },
+        {
+            "current": 1434.0,
+            "min": 1434.0,
+            "max": 4580.0
+        },
+        {
+            "current": 2708.871,
+            "min": 1434.0,
+            "max": 4580.0
+        },
+        {
+            "current": 2517.064,
+            "min": 1434.0,
+            "max": 4580.0
+        },
+        {
+            "current": 1434.0,
+            "min": 1434.0,
+            "max": 4580.0
+        },
+        {
+            "current": 1434.0,
+            "min": 1434.0,
+            "max": 4580.0
+        },
+        {
+            "current": 1434.0,
+            "min": 1434.0,
+            "max": 4580.0
+        },
+        {
+            "current": 1434.0,
+            "min": 1434.0,
+            "max": 4580.0
+        },
+        {
+            "current": 1434.0,
+            "min": 1434.0,
+            "max": 4580.0
+        },
+        {
+            "current": 1434.0,
+            "min": 1434.0,
+            "max": 4580.0
+        },
+        {
+            "current": 1434.0,
+            "min": 1434.0,
+            "max": 4580.0
+        },
+        {
+            "current": 1434.0,
+            "min": 1434.0,
+            "max": 4580.0
+        },
+        {
+            "current": 1434.0,
+            "min": 1434.0,
+            "max": 4580.0
+        },
+        {
+            "current": 1434.0,
+            "min": 1434.0,
+            "max": 4580.0
+        },
+        {
+            "current": 1434.0,
+            "min": 1434.0,
+            "max": 4580.0
+        },
+        {
+            "current": 1434.0,
+            "min": 1434.0,
+            "max": 4580.0
+        },
+        {
+            "current": 1434.0,
+            "min": 1434.0,
+            "max": 4580.0
+        },
+        {
+            "current": 1434.0,
+            "min": 1434.0,
+            "max": 4580.0
+        }
+    ],
+    "disk": {
+        "total": 3575.3955078125,
+        "used": 3502.766830444336
+    },
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "gpu_count": 2,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 4090",
+            "memory_total": 25757220864
+        },
+        {
+            "name": "NVIDIA GeForce RTX 4090",
+            "memory_total": 25757220864
+        }
+    ],
+    "memory": {
+        "total": 503.53097915649414
+    }
+}

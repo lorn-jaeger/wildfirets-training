@@ -1,0 +1,76 @@
+2025-07-30 15:48:19,556 INFO    StreamThr :3072731 [internal.py:wandb_internal():86] W&B internal server running at pid: 3072731, started at: 2025-07-30 15:48:19.556591
+2025-07-30 15:48:19,558 DEBUG   HandlerThread:3072731 [handler.py:handle_request():144] handle_request: status
+2025-07-30 15:48:19,560 INFO    WriterThread:3072731 [datastore.py:open_for_write():85] open: /var/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/my_results/wandb/run-20250730_154819-0w8y4rcg/run-0w8y4rcg.wandb
+2025-07-30 15:48:19,560 DEBUG   SenderThread:3072731 [sender.py:send():375] send: header
+2025-07-30 15:48:19,561 DEBUG   SenderThread:3072731 [sender.py:send():375] send: run
+2025-07-30 15:48:19,897 INFO    SenderThread:3072731 [dir_watcher.py:__init__():219] watching files in: /var/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/my_results/wandb/run-20250730_154819-0w8y4rcg/files
+2025-07-30 15:48:19,897 INFO    SenderThread:3072731 [sender.py:_start_run_threads():1124] run started: 0w8y4rcg with start time 1753912099.556459
+2025-07-30 15:48:19,897 DEBUG   SenderThread:3072731 [sender.py:send_request():402] send_request: summary_record
+2025-07-30 15:48:19,897 INFO    SenderThread:3072731 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2025-07-30 15:48:19,899 DEBUG   HandlerThread:3072731 [handler.py:handle_request():144] handle_request: check_version
+2025-07-30 15:48:19,899 DEBUG   SenderThread:3072731 [sender.py:send_request():402] send_request: check_version
+2025-07-30 15:48:20,101 DEBUG   HandlerThread:3072731 [handler.py:handle_request():144] handle_request: run_start
+2025-07-30 15:48:20,119 DEBUG   HandlerThread:3072731 [system_info.py:__init__():31] System info init
+2025-07-30 15:48:20,119 DEBUG   HandlerThread:3072731 [system_info.py:__init__():46] System info init done
+2025-07-30 15:48:20,119 INFO    HandlerThread:3072731 [system_monitor.py:start():181] Starting system monitor
+2025-07-30 15:48:20,119 INFO    SystemMonitor:3072731 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2025-07-30 15:48:20,119 INFO    HandlerThread:3072731 [system_monitor.py:probe():201] Collecting system info
+2025-07-30 15:48:20,120 INFO    SystemMonitor:3072731 [interfaces.py:start():190] Started cpu monitoring
+2025-07-30 15:48:20,120 INFO    SystemMonitor:3072731 [interfaces.py:start():190] Started disk monitoring
+2025-07-30 15:48:20,121 INFO    SystemMonitor:3072731 [interfaces.py:start():190] Started gpu monitoring
+2025-07-30 15:48:20,122 INFO    SystemMonitor:3072731 [interfaces.py:start():190] Started memory monitoring
+2025-07-30 15:48:20,123 INFO    SystemMonitor:3072731 [interfaces.py:start():190] Started network monitoring
+2025-07-30 15:48:20,138 DEBUG   HandlerThread:3072731 [system_info.py:probe():195] Probing system
+2025-07-30 15:48:20,139 DEBUG   HandlerThread:3072731 [system_info.py:_probe_git():180] Probing git
+2025-07-30 15:48:20,144 DEBUG   HandlerThread:3072731 [system_info.py:_probe_git():188] Probing git done
+2025-07-30 15:48:20,144 DEBUG   HandlerThread:3072731 [system_info.py:probe():240] Probing system done
+2025-07-30 15:48:20,144 DEBUG   HandlerThread:3072731 [system_monitor.py:probe():210] {'os': 'Linux-6.14.9-300.fc42.x86_64-x86_64-with-glibc2.41', 'python': '3.10.18', 'heartbeatAt': '2025-07-30T21:48:20.138628', 'startedAt': '2025-07-30T21:48:19.550522', 'docker': None, 'cuda': None, 'args': ('--config=cfgs/UTAE/all_features.yaml', '--trainer=cfgs/trainer_single_gpu.yaml', '--data=cfgs/data_multitemporal_full_features.yaml', '--seed_everything=0', '--trainer.max_epochs=1000', '--do_test=True', '--data.data_di', 'data/'), 'state': 'running', 'program': '/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/src/train.py', 'codePath': 'src/train.py', 'git': {'remote': 'https://github.com/slahrichi/WildfireSpreadTS.git', 'commit': '1be746914619caa571e6ef8e29e7f97531cbcd0b'}, 'email': 'lornjaeger@proton.me', 'root': '/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS', 'host': 'johnson-lab', 'username': 'lornjaeger', 'executable': '/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/.venv/bin/python', 'cpu_count': 16, 'cpu_count_logical': 32, 'cpu_freq': {'current': 2082.52521875, 'min': 1434.0, 'max': 4580.0}, 'cpu_freq_per_core': [{'current': 3141.736, 'min': 1434.0, 'max': 4580.0}, {'current': 1434.0, 'min': 1434.0, 'max': 4580.0}, {'current': 1434.0, 'min': 1434.0, 'max': 4580.0}, {'current': 1434.0, 'min': 1434.0, 'max': 4580.0}, {'current': 1434.0, 'min': 1434.0, 'max': 4580.0}, {'current': 1434.0, 'min': 1434.0, 'max': 4580.0}, {'current': 2514.542, 'min': 1434.0, 'max': 4580.0}, {'current': 3055.01, 'min': 1434.0, 'max': 4580.0}, {'current': 1434.0, 'min': 1434.0, 'max': 4580.0}, {'current': 1434.0, 'min': 1434.0, 'max': 4580.0}, {'current': 1434.0, 'min': 1434.0, 'max': 4580.0}, {'current': 1434.0, 'min': 1434.0, 'max': 4580.0}, {'current': 1434.0, 'min': 1434.0, 'max': 4580.0}, {'current': 1434.0, 'min': 1434.0, 'max': 4580.0}, {'current': 2448.823, 'min': 1434.0, 'max': 4580.0}, {'current': 3072.974, 'min': 1434.0, 'max': 4580.0}, {'current': 3143.66, 'min': 1434.0, 'max': 4580.0}, {'current': 2515.174, 'min': 1434.0, 'max': 4580.0}, {'current': 2514.196, 'min': 1434.0, 'max': 4580.0}, {'current': 1434.0, 'min': 1434.0, 'max': 4580.0}, {'current': 1434.0, 'min': 1434.0, 'max': 4580.0}, {'current': 1434.0, 'min': 1434.0, 'max': 4580.0}, {'current': 1434.0, 'min': 1434.0, 'max': 4580.0}, {'current': 1434.0, 'min': 1434.0, 'max': 4580.0}, {'current': 2460.101, 'min': 1434.0, 'max': 4580.0}, {'current': 2454.138, 'min': 1434.0, 'max': 4580.0}, {'current': 1434.0, 'min': 1434.0, 'max': 4580.0}, {'current': 1434.0, 'min': 1434.0, 'max': 4580.0}, {'current': 1434.0, 'min': 1434.0, 'max': 4580.0}, {'current': 2458.596, 'min': 1434.0, 'max': 4580.0}, {'current': 1434.0, 'min': 1434.0, 'max': 4580.0}, {'current': 1434.0, 'min': 1434.0, 'max': 4580.0}], 'disk': {'total': 3575.3955078125, 'used': 3504.2570762634277}, 'gpu': 'NVIDIA GeForce RTX 4090', 'gpu_count': 2, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 4090', 'memory_total': 25757220864}, {'name': 'NVIDIA GeForce RTX 4090', 'memory_total': 25757220864}], 'memory': {'total': 503.53097915649414}}
+2025-07-30 15:48:20,144 INFO    HandlerThread:3072731 [system_monitor.py:probe():211] Finished collecting system info
+2025-07-30 15:48:20,145 INFO    HandlerThread:3072731 [system_monitor.py:probe():214] Publishing system info
+2025-07-30 15:48:20,145 DEBUG   HandlerThread:3072731 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2025-07-30 15:48:20,145 DEBUG   HandlerThread:3072731 [system_info.py:_save_pip():67] Saving pip packages done
+2025-07-30 15:48:20,146 INFO    HandlerThread:3072731 [system_monitor.py:probe():216] Finished publishing system info
+2025-07-30 15:48:20,151 DEBUG   SenderThread:3072731 [sender.py:send():375] send: files
+2025-07-30 15:48:20,151 INFO    SenderThread:3072731 [sender.py:_save_file():1378] saving file wandb-metadata.json with policy now
+2025-07-30 15:48:20,154 DEBUG   HandlerThread:3072731 [handler.py:handle_request():144] handle_request: stop_status
+2025-07-30 15:48:20,154 DEBUG   SenderThread:3072731 [sender.py:send_request():402] send_request: stop_status
+2025-07-30 15:48:20,375 DEBUG   SenderThread:3072731 [sender.py:send():375] send: telemetry
+2025-07-30 15:48:20,375 DEBUG   SenderThread:3072731 [sender.py:send():375] send: metric
+2025-07-30 15:48:20,375 DEBUG   SenderThread:3072731 [sender.py:send():375] send: telemetry
+2025-07-30 15:48:20,375 DEBUG   SenderThread:3072731 [sender.py:send():375] send: metric
+2025-07-30 15:48:20,375 WARNING SenderThread:3072731 [sender.py:send_metric():1329] Seen metric with glob (shouldn't happen)
+2025-07-30 15:48:20,527 INFO    wandb-upload_0:3072731 [upload_job.py:push():137] Uploaded file /tmp/tmpir30i2jvwandb/skd1ffj4-wandb-metadata.json
+2025-07-30 15:48:20,899 INFO    Thread-12 :3072731 [dir_watcher.py:_on_file_created():278] file/dir created: /var/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/my_results/wandb/run-20250730_154819-0w8y4rcg/files/requirements.txt
+2025-07-30 15:48:20,899 INFO    Thread-12 :3072731 [dir_watcher.py:_on_file_created():278] file/dir created: /var/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/my_results/wandb/run-20250730_154819-0w8y4rcg/files/wandb-summary.json
+2025-07-30 15:48:20,899 INFO    Thread-12 :3072731 [dir_watcher.py:_on_file_created():278] file/dir created: /var/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/my_results/wandb/run-20250730_154819-0w8y4rcg/files/wandb-metadata.json
+2025-07-30 15:48:21,123 DEBUG   SenderThread:3072731 [sender.py:send():375] send: telemetry
+2025-07-30 15:48:21,123 DEBUG   SenderThread:3072731 [sender.py:send():375] send: files
+2025-07-30 15:48:21,123 INFO    SenderThread:3072731 [sender.py:_save_file():1378] saving file cli_config.yaml with policy now
+2025-07-30 15:48:21,124 DEBUG   SenderThread:3072731 [sender.py:send():375] send: metric
+2025-07-30 15:48:21,124 DEBUG   SenderThread:3072731 [sender.py:send():375] send: metric
+2025-07-30 15:48:21,124 DEBUG   SenderThread:3072731 [sender.py:send():375] send: metric
+2025-07-30 15:48:21,124 DEBUG   SenderThread:3072731 [sender.py:send():375] send: metric
+2025-07-30 15:48:21,124 DEBUG   SenderThread:3072731 [sender.py:send():375] send: metric
+2025-07-30 15:48:21,451 INFO    wandb-upload_0:3072731 [upload_job.py:push():137] Uploaded file /tmp/tmpir30i2jvwandb/d98f4p6p-cli_config.yaml
+2025-07-30 15:48:21,460 DEBUG   SenderThread:3072731 [sender.py:send():375] send: config
+2025-07-30 15:48:21,897 INFO    Thread-12 :3072731 [dir_watcher.py:_on_file_created():278] file/dir created: /var/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/my_results/wandb/run-20250730_154819-0w8y4rcg/files/output.log
+2025-07-30 15:48:21,898 INFO    Thread-12 :3072731 [dir_watcher.py:_on_file_created():278] file/dir created: /var/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/my_results/wandb/run-20250730_154819-0w8y4rcg/files/cli_config.yaml
+2025-07-30 15:48:23,898 INFO    Thread-12 :3072731 [dir_watcher.py:_on_file_modified():295] file/dir modified: /var/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/my_results/wandb/run-20250730_154819-0w8y4rcg/files/output.log
+2025-07-30 15:48:25,463 DEBUG   HandlerThread:3072731 [handler.py:handle_request():144] handle_request: status_report
+2025-07-30 15:48:30,463 DEBUG   HandlerThread:3072731 [handler.py:handle_request():144] handle_request: status_report
+2025-07-30 15:48:35,154 DEBUG   HandlerThread:3072731 [handler.py:handle_request():144] handle_request: stop_status
+2025-07-30 15:48:35,154 DEBUG   SenderThread:3072731 [sender.py:send_request():402] send_request: stop_status
+2025-07-30 15:48:35,903 INFO    Thread-12 :3072731 [dir_watcher.py:_on_file_modified():295] file/dir modified: /var/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/my_results/wandb/run-20250730_154819-0w8y4rcg/files/output.log
+2025-07-30 15:48:36,338 DEBUG   HandlerThread:3072731 [handler.py:handle_request():144] handle_request: status_report
+2025-07-30 15:48:41,339 DEBUG   HandlerThread:3072731 [handler.py:handle_request():144] handle_request: status_report
+2025-07-30 15:48:46,340 DEBUG   HandlerThread:3072731 [handler.py:handle_request():144] handle_request: status_report
+2025-07-30 15:48:51,344 DEBUG   HandlerThread:3072731 [handler.py:handle_request():144] handle_request: status_report
+2025-07-30 15:48:51,909 INFO    Thread-12 :3072731 [dir_watcher.py:_on_file_modified():295] file/dir modified: /var/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/my_results/wandb/run-20250730_154819-0w8y4rcg/files/config.yaml
+2025-07-30 15:48:56,456 DEBUG   HandlerThread:3072731 [handler.py:handle_request():144] handle_request: status_report
+2025-07-30 15:49:01,457 DEBUG   HandlerThread:3072731 [handler.py:handle_request():144] handle_request: status_report
+2025-07-30 15:49:06,137 INFO    memory    :3072731 [interfaces.py:monitor():140] Process proc.memory.rssMB has exited.
+2025-07-30 15:49:06,138 DEBUG   SystemMonitor:3072731 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2025-07-30 15:49:06,138 DEBUG   SystemMonitor:3072731 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2025-07-30 15:49:06,138 DEBUG   SystemMonitor:3072731 [system_monitor.py:_start():170] Publishing last batch of metrics
+2025-07-30 15:49:06,139 DEBUG   SenderThread:3072731 [sender.py:send():375] send: stats
+2025-07-30 15:49:07,114 INFO    MainThread:3072731 [internal.py:handle_exit():76] Internal process exited

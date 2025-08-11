@@ -1,0 +1,93 @@
+Checkpoint loaded successfully from '/var/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/src/models/utae_paps_models/model.pth.tar'
+Using the following dataset split:
+Train years: [2018, 2019], Val years: [2020], Test years: [2021]
+Sanity Checking: 0it [00:00, ?it/s]
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1]
+   | Name               | Type                       | Params
+-------------------------------------------------------------------
+0  | loss               | BCEWithLogitsLoss          | 0
+1  | train_f1           | BinaryF1Score              | 0
+2  | val_f1             | BinaryF1Score              | 0
+3  | test_f1            | BinaryF1Score              | 0
+4  | test_avg_precision | BinaryAveragePrecision     | 0
+5  | val_avg_precision  | BinaryAveragePrecision     | 0
+6  | test_precision     | BinaryPrecision            | 0
+7  | test_recall        | BinaryRecall               | 0
+8  | test_iou           | BinaryJaccardIndex         | 0
+9  | conf_mat           | BinaryConfusionMatrix      | 0
+10 | test_pr_curve      | BinaryPrecisionRecallCurve | 0
+11 | model              | UTAE                       | 1.1 M
+-------------------------------------------------------------------
+1.1 M     Trainable params
+0         Non-trainable params
+1.1 M     Total params
+
+
+Sanity Checking DataLoader 0:  50%|██████████████████████████████████████                                      | 1/2 [00:03<00:03,  3.56s/it]
+/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/.venv/lib64/python3.10/site-packages/torchmetrics/utilities/prints.py:43: TorchMetricsUserWarning: You are trying to use a metric in deterministic mode on GPU that uses `torch.cumsum`, which is currently not supported. The tensor will be copied to the CPU memory to compute it and then copied back to GPU. Expect some slowdowns.
+
+  warnings.warn(*args, **kwargs)  # noqa: B028
+
+Epoch 0:   3%|█▏                                    | 2/62 [00:08<04:13,  4.23s/it, v_num=fqb4, train_loss_step=1.360, train_f1_step=0.00184]
+/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/.venv/lib64/python3.10/site-packages/torch/autograd/__init__.py:200: UserWarning: reflection_pad2d_backward_cuda does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True, warn_only=True)'. You can file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation. (Triggered internally at ../aten/src/ATen/Context.cpp:71.)
+  Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/.venv/lib64/python3.10/site-packages/torch/autograd/__init__.py:200: UserWarning: upsample_bilinear2d_backward_out_cuda does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True, warn_only=True)'. You can file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation. (Triggered internally at ../aten/src/ATen/Context.cpp:71.)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 0: 100%|█████████████████████████████████████| 62/62 [00:48<00:00,  1.27it/s, v_num=fqb4, train_loss_step=0.880, train_f1_step=0.00676]
+
+
+
+
+
+
+
+
+
+
+
+Validation DataLoader 0:  98%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊    | 51/52 [00:21<00:00,  2.39it/s]
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7fe0a21df370>
+Traceback (most recent call last):
+  File "/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/.venv/lib64/python3.10/site-packages/torch/utils/data/dataloader.py", line 1479, in __del__
+    self._shutdown_workers()
+  File "/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/.venv/lib64/python3.10/site-packages/torch/utils/data/dataloader.py", line 1443, in _shutdown_workers
+    w.join(timeout=_utils.MP_STATUS_CHECK_INTERVAL)
+  File "/usr/lib64/python3.10/multiprocessing/process.py", line 149, in join
+    res = self._popen.wait(timeout)
+  File "/usr/lib64/python3.10/multiprocessing/popen_fork.py", line 40, in wait
+    if not wait([self.sentinel], timeout):
+  File "/usr/lib64/python3.10/multiprocessing/connection.py", line 931, in wait
+    ready = selector.select(timeout)
+  File "/usr/lib64/python3.10/selectors.py", line 416, in select
+    fd_event_list = self._selector.poll(timeout)
+
+KeyboardInterrupt:
+/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/.venv/lib64/python3.10/site-packages/pytorch_lightning/trainer/call.py:54: UserWarning: Detected KeyboardInterrupt, attempting graceful shutdown...
+  rank_zero_warn("Detected KeyboardInterrupt, attempting graceful shutdown...")
+Restoring states from the checkpoint path at /var/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/my_results/wildfire_progression/r39dfqb4/checkpoints/epoch=0-step=62.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1]
+Epoch 1:   0%|                                                                                    | 0/62 [00:00<?, ?it/s, v_num=fqb4, train_loss_step=0.880, train_f1_step=0.00676, val_loss=2.710, val_avg_precision=0.157, val_f1=0.0354, train_loss_epoch=1.100, train_f1_epoch=0.00709]Using the following dataset split:
+Train years: [2018, 2019], Val years: [2020], Test years: [2021]
