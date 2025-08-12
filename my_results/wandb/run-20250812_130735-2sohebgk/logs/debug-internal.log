@@ -1,0 +1,77 @@
+2025-08-12 13:07:35,753 INFO    StreamThr :398888 [internal.py:wandb_internal():86] W&B internal server running at pid: 398888, started at: 2025-08-12 13:07:35.752918
+2025-08-12 13:07:35,755 DEBUG   HandlerThread:398888 [handler.py:handle_request():144] handle_request: status
+2025-08-12 13:07:35,756 INFO    WriterThread:398888 [datastore.py:open_for_write():85] open: /var/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/my_results/wandb/run-20250812_130735-2sohebgk/run-2sohebgk.wandb
+2025-08-12 13:07:35,757 DEBUG   SenderThread:398888 [sender.py:send():375] send: header
+2025-08-12 13:07:35,757 DEBUG   SenderThread:398888 [sender.py:send():375] send: run
+2025-08-12 13:07:36,026 INFO    SenderThread:398888 [dir_watcher.py:__init__():219] watching files in: /var/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/my_results/wandb/run-20250812_130735-2sohebgk/files
+2025-08-12 13:07:36,026 INFO    SenderThread:398888 [sender.py:_start_run_threads():1124] run started: 2sohebgk with start time 1755025655.752214
+2025-08-12 13:07:36,026 DEBUG   SenderThread:398888 [sender.py:send_request():402] send_request: summary_record
+2025-08-12 13:07:36,027 INFO    SenderThread:398888 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2025-08-12 13:07:36,027 DEBUG   HandlerThread:398888 [handler.py:handle_request():144] handle_request: check_version
+2025-08-12 13:07:36,027 DEBUG   SenderThread:398888 [sender.py:send_request():402] send_request: check_version
+2025-08-12 13:07:36,215 DEBUG   HandlerThread:398888 [handler.py:handle_request():144] handle_request: run_start
+2025-08-12 13:07:36,233 DEBUG   HandlerThread:398888 [system_info.py:__init__():31] System info init
+2025-08-12 13:07:36,233 DEBUG   HandlerThread:398888 [system_info.py:__init__():46] System info init done
+2025-08-12 13:07:36,233 INFO    HandlerThread:398888 [system_monitor.py:start():181] Starting system monitor
+2025-08-12 13:07:36,233 INFO    SystemMonitor:398888 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2025-08-12 13:07:36,233 INFO    HandlerThread:398888 [system_monitor.py:probe():201] Collecting system info
+2025-08-12 13:07:36,233 INFO    SystemMonitor:398888 [interfaces.py:start():190] Started cpu monitoring
+2025-08-12 13:07:36,234 INFO    SystemMonitor:398888 [interfaces.py:start():190] Started disk monitoring
+2025-08-12 13:07:36,235 INFO    SystemMonitor:398888 [interfaces.py:start():190] Started gpu monitoring
+2025-08-12 13:07:36,235 INFO    SystemMonitor:398888 [interfaces.py:start():190] Started memory monitoring
+2025-08-12 13:07:36,236 INFO    SystemMonitor:398888 [interfaces.py:start():190] Started network monitoring
+2025-08-12 13:07:36,252 DEBUG   HandlerThread:398888 [system_info.py:probe():195] Probing system
+2025-08-12 13:07:36,253 DEBUG   HandlerThread:398888 [system_info.py:_probe_git():180] Probing git
+2025-08-12 13:07:36,258 DEBUG   HandlerThread:398888 [system_info.py:_probe_git():188] Probing git done
+2025-08-12 13:07:36,258 DEBUG   HandlerThread:398888 [system_info.py:probe():240] Probing system done
+2025-08-12 13:07:36,258 DEBUG   HandlerThread:398888 [system_monitor.py:probe():210] {'os': 'Linux-6.15.9-201.fc42.x86_64-x86_64-with-glibc2.41', 'python': '3.10.18', 'heartbeatAt': '2025-08-12T19:07:36.252574', 'startedAt': '2025-08-12T19:07:35.747359', 'docker': None, 'cuda': None, 'args': ('--config=cfgs/UTAE/all_features.yaml', '--trainer=cfgs/trainer_single_gpu.yaml', '--data=cfgs/data_multitemporal_full_features.yaml', '--seed_everything=0', '--trainer.max_epochs=1000', '--do_test=True', '--data.data_di', 'data/'), 'state': 'running', 'program': '/var/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/src/train.py', 'codePath': 'src/train.py', 'git': {'remote': 'git@github.com:lorn-jaeger/wildfirets-training.git', 'commit': '6436fc3b04989b3781d358ac85040c19d74d4f8d'}, 'email': 'lornjaeger@proton.me', 'root': '/var/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS', 'host': 'johnson-lab', 'username': 'lornjaeger', 'executable': '/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/.venv/bin/python', 'cpu_count': 16, 'cpu_count_logical': 32, 'cpu_freq': {'current': 1915.7755312499992, 'min': 1434.8419999999994, 'max': 4580.456000000002}, 'cpu_freq_per_core': [{'current': 1434.842, 'min': 1434.842, 'max': 4580.456}, {'current': 2522.189, 'min': 1434.842, 'max': 4580.456}, {'current': 2788.964, 'min': 1434.842, 'max': 4580.456}, {'current': 2516.99, 'min': 1434.842, 'max': 4580.456}, {'current': 2511.001, 'min': 1434.842, 'max': 4580.456}, {'current': 1434.842, 'min': 1434.842, 'max': 4580.456}, {'current': 1434.842, 'min': 1434.842, 'max': 4580.456}, {'current': 1434.842, 'min': 1434.842, 'max': 4580.456}, {'current': 2523.452, 'min': 1434.842, 'max': 4580.456}, {'current': 1434.842, 'min': 1434.842, 'max': 4580.456}, {'current': 1434.842, 'min': 1434.842, 'max': 4580.456}, {'current': 1434.842, 'min': 1434.842, 'max': 4580.456}, {'current': 1434.842, 'min': 1434.842, 'max': 4580.456}, {'current': 1959.559, 'min': 1434.842, 'max': 4580.456}, {'current': 1434.842, 'min': 1434.842, 'max': 4580.456}, {'current': 2512.103, 'min': 1434.842, 'max': 4580.456}, {'current': 1434.842, 'min': 1434.842, 'max': 4580.456}, {'current': 1434.842, 'min': 1434.842, 'max': 4580.456}, {'current': 1434.842, 'min': 1434.842, 'max': 4580.456}, {'current': 1434.842, 'min': 1434.842, 'max': 4580.456}, {'current': 1434.842, 'min': 1434.842, 'max': 4580.456}, {'current': 1434.842, 'min': 1434.842, 'max': 4580.456}, {'current': 3144.326, 'min': 1434.842, 'max': 4580.456}, {'current': 1434.842, 'min': 1434.842, 'max': 4580.456}, {'current': 1434.842, 'min': 1434.842, 'max': 4580.456}, {'current': 1434.842, 'min': 1434.842, 'max': 4580.456}, {'current': 1434.842, 'min': 1434.842, 'max': 4580.456}, {'current': 1434.842, 'min': 1434.842, 'max': 4580.456}, {'current': 3051.438, 'min': 1434.842, 'max': 4580.456}, {'current': 3169.283, 'min': 1434.842, 'max': 4580.456}, {'current': 2505.069, 'min': 1434.842, 'max': 4580.456}, {'current': 1985.383, 'min': 1434.842, 'max': 4580.456}], 'disk': {'total': 3575.3955078125, 'used': 3359.937656402588}, 'gpu': 'NVIDIA GeForce RTX 4090', 'gpu_count': 2, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 4090', 'memory_total': 25757220864}, {'name': 'NVIDIA GeForce RTX 4090', 'memory_total': 25757220864}], 'memory': {'total': 503.53125381469727}}
+2025-08-12 13:07:36,258 INFO    HandlerThread:398888 [system_monitor.py:probe():211] Finished collecting system info
+2025-08-12 13:07:36,258 INFO    HandlerThread:398888 [system_monitor.py:probe():214] Publishing system info
+2025-08-12 13:07:36,259 DEBUG   HandlerThread:398888 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2025-08-12 13:07:36,259 DEBUG   HandlerThread:398888 [system_info.py:_save_pip():67] Saving pip packages done
+2025-08-12 13:07:36,259 INFO    HandlerThread:398888 [system_monitor.py:probe():216] Finished publishing system info
+2025-08-12 13:07:36,261 DEBUG   SenderThread:398888 [sender.py:send():375] send: files
+2025-08-12 13:07:36,261 INFO    SenderThread:398888 [sender.py:_save_file():1378] saving file wandb-metadata.json with policy now
+2025-08-12 13:07:36,264 DEBUG   HandlerThread:398888 [handler.py:handle_request():144] handle_request: stop_status
+2025-08-12 13:07:36,264 DEBUG   SenderThread:398888 [sender.py:send_request():402] send_request: stop_status
+2025-08-12 13:07:36,421 DEBUG   SenderThread:398888 [sender.py:send():375] send: telemetry
+2025-08-12 13:07:36,421 DEBUG   SenderThread:398888 [sender.py:send():375] send: metric
+2025-08-12 13:07:36,421 DEBUG   SenderThread:398888 [sender.py:send():375] send: telemetry
+2025-08-12 13:07:36,421 DEBUG   SenderThread:398888 [sender.py:send():375] send: metric
+2025-08-12 13:07:36,421 WARNING SenderThread:398888 [sender.py:send_metric():1329] Seen metric with glob (shouldn't happen)
+2025-08-12 13:07:36,626 INFO    wandb-upload_0:398888 [upload_job.py:push():137] Uploaded file /tmp/tmp10k6p3djwandb/ce70lpmf-wandb-metadata.json
+2025-08-12 13:07:36,696 DEBUG   SenderThread:398888 [sender.py:send():375] send: telemetry
+2025-08-12 13:07:36,696 DEBUG   SenderThread:398888 [sender.py:send():375] send: files
+2025-08-12 13:07:36,696 INFO    SenderThread:398888 [sender.py:_save_file():1378] saving file cli_config.yaml with policy now
+2025-08-12 13:07:36,696 DEBUG   SenderThread:398888 [sender.py:send():375] send: metric
+2025-08-12 13:07:36,696 DEBUG   SenderThread:398888 [sender.py:send():375] send: metric
+2025-08-12 13:07:36,697 DEBUG   SenderThread:398888 [sender.py:send():375] send: metric
+2025-08-12 13:07:36,697 DEBUG   SenderThread:398888 [sender.py:send():375] send: metric
+2025-08-12 13:07:36,697 DEBUG   SenderThread:398888 [sender.py:send():375] send: metric
+2025-08-12 13:07:36,944 DEBUG   SenderThread:398888 [sender.py:send():375] send: config
+2025-08-12 13:07:37,028 INFO    Thread-12 :398888 [dir_watcher.py:_on_file_created():278] file/dir created: /var/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/my_results/wandb/run-20250812_130735-2sohebgk/files/wandb-summary.json
+2025-08-12 13:07:37,028 INFO    Thread-12 :398888 [dir_watcher.py:_on_file_created():278] file/dir created: /var/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/my_results/wandb/run-20250812_130735-2sohebgk/files/output.log
+2025-08-12 13:07:37,028 INFO    Thread-12 :398888 [dir_watcher.py:_on_file_created():278] file/dir created: /var/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/my_results/wandb/run-20250812_130735-2sohebgk/files/requirements.txt
+2025-08-12 13:07:37,028 INFO    Thread-12 :398888 [dir_watcher.py:_on_file_created():278] file/dir created: /var/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/my_results/wandb/run-20250812_130735-2sohebgk/files/wandb-metadata.json
+2025-08-12 13:07:37,028 INFO    Thread-12 :398888 [dir_watcher.py:_on_file_created():278] file/dir created: /var/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/my_results/wandb/run-20250812_130735-2sohebgk/files/cli_config.yaml
+2025-08-12 13:07:37,064 INFO    wandb-upload_0:398888 [upload_job.py:push():137] Uploaded file /tmp/tmp10k6p3djwandb/85f3ufrr-cli_config.yaml
+2025-08-12 13:07:39,027 INFO    Thread-12 :398888 [dir_watcher.py:_on_file_modified():295] file/dir modified: /var/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/my_results/wandb/run-20250812_130735-2sohebgk/files/output.log
+2025-08-12 13:07:40,946 DEBUG   HandlerThread:398888 [handler.py:handle_request():144] handle_request: status_report
+2025-08-12 13:07:45,947 DEBUG   HandlerThread:398888 [handler.py:handle_request():144] handle_request: status_report
+2025-08-12 13:07:50,948 DEBUG   HandlerThread:398888 [handler.py:handle_request():144] handle_request: status_report
+2025-08-12 13:07:51,265 DEBUG   HandlerThread:398888 [handler.py:handle_request():144] handle_request: stop_status
+2025-08-12 13:07:51,265 DEBUG   SenderThread:398888 [sender.py:send_request():402] send_request: stop_status
+2025-08-12 13:07:53,032 INFO    Thread-12 :398888 [dir_watcher.py:_on_file_modified():295] file/dir modified: /var/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/my_results/wandb/run-20250812_130735-2sohebgk/files/output.log
+2025-08-12 13:07:56,070 DEBUG   HandlerThread:398888 [handler.py:handle_request():144] handle_request: status_report
+2025-08-12 13:08:01,071 DEBUG   HandlerThread:398888 [handler.py:handle_request():144] handle_request: status_report
+2025-08-12 13:08:06,074 DEBUG   HandlerThread:398888 [handler.py:handle_request():144] handle_request: status_report
+2025-08-12 13:08:07,037 INFO    Thread-12 :398888 [dir_watcher.py:_on_file_modified():295] file/dir modified: /var/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/my_results/wandb/run-20250812_130735-2sohebgk/files/config.yaml
+2025-08-12 13:08:11,194 DEBUG   HandlerThread:398888 [handler.py:handle_request():144] handle_request: status_report
+2025-08-12 13:08:16,195 DEBUG   HandlerThread:398888 [handler.py:handle_request():144] handle_request: status_report
+2025-08-12 13:08:21,197 DEBUG   HandlerThread:398888 [handler.py:handle_request():144] handle_request: status_report
+2025-08-12 13:08:22,251 INFO    memory    :398888 [interfaces.py:monitor():140] Process proc.memory.rssMB has exited.
+2025-08-12 13:08:22,251 DEBUG   SystemMonitor:398888 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2025-08-12 13:08:22,251 DEBUG   SystemMonitor:398888 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2025-08-12 13:08:22,251 DEBUG   SystemMonitor:398888 [system_monitor.py:_start():170] Publishing last batch of metrics
+2025-08-12 13:08:22,252 DEBUG   SenderThread:398888 [sender.py:send():375] send: stats
+2025-08-12 13:08:23,226 INFO    MainThread:398888 [internal.py:handle_exit():76] Internal process exited

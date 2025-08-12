@@ -1,0 +1,94 @@
+Checkpoint loaded successfully from '/var/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/src/models/utae_paps_models/model.pth.tar'
+Using the following dataset split:
+Train years: [2018, 2019], Val years: [2020], Test years: [2021]
+Sanity Checking: 0it [00:00, ?it/s]
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1]
+   | Name               | Type                       | Params
+-------------------------------------------------------------------
+0  | loss               | BCEWithLogitsLoss          | 0
+1  | train_f1           | BinaryF1Score              | 0
+2  | val_f1             | BinaryF1Score              | 0
+3  | test_f1            | BinaryF1Score              | 0
+4  | test_avg_precision | BinaryAveragePrecision     | 0
+5  | val_avg_precision  | BinaryAveragePrecision     | 0
+6  | test_precision     | BinaryPrecision            | 0
+7  | test_recall        | BinaryRecall               | 0
+8  | test_iou           | BinaryJaccardIndex         | 0
+9  | conf_mat           | BinaryConfusionMatrix      | 0
+10 | test_pr_curve      | BinaryPrecisionRecallCurve | 0
+11 | model              | UTAE                       | 1.1 M
+-------------------------------------------------------------------
+1.1 M     Trainable params
+0         Non-trainable params
+1.1 M     Total params
+
+Sanity Checking DataLoader 0:   0%|                                                                                                                                 | 0/2 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/var/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/src/train.py", line 130, in <module>
+    main()
+  File "/var/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/src/train.py", line 94, in main
+    cli.trainer.fit(cli.model, cli.datamodule,
+  File "/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/.venv/lib64/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 520, in fit
+    call._call_and_handle_interrupt(
+  File "/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/.venv/lib64/python3.10/site-packages/pytorch_lightning/trainer/call.py", line 44, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/.venv/lib64/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 559, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path)
+  File "/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/.venv/lib64/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 935, in _run
+    results = self._run_stage()
+  File "/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/.venv/lib64/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 976, in _run_stage
+    self._run_sanity_check()
+  File "/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/.venv/lib64/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 1005, in _run_sanity_check
+    val_loop.run()
+  File "/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/.venv/lib64/python3.10/site-packages/pytorch_lightning/loops/utilities.py", line 177, in _decorator
+    return loop_run(self, *args, **kwargs)
+  File "/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/.venv/lib64/python3.10/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 115, in run
+    self._evaluation_step(batch, batch_idx, dataloader_idx)
+  File "/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/.venv/lib64/python3.10/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 375, in _evaluation_step
+    output = call._call_strategy_hook(trainer, hook_name, *step_kwargs.values())
+  File "/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/.venv/lib64/python3.10/site-packages/pytorch_lightning/trainer/call.py", line 288, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+  File "/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/.venv/lib64/python3.10/site-packages/pytorch_lightning/strategies/strategy.py", line 378, in validation_step
+    return self.model.validation_step(*args, **kwargs)
+  File "/var/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/src/models/BaseModel.py", line 227, in validation_step
+    y_hat, y = self.get_pred_and_gt(batch)
+  File "/var/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/src/models/BaseModel.py", line 105, in get_pred_and_gt
+    x, y, doys = batch
+ValueError: not enough values to unpack (expected 3, got 2)
+[1m------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[1mtrain.py 130 <module>
+[1mmain()
+[1mtrain.py 94 main
+[1mcli.trainer.fit(cli.model, cli.datamodule,
+[1mtrainer.py 520 fit
+[1mcall._call_and_handle_interrupt(
+[1mcall.py 44 _call_and_handle_interrupt
+[1mreturn trainer_fn(*args, **kwargs)
+[1mtrainer.py 559 _fit_impl
+[1mself._run(model, ckpt_path=ckpt_path)
+[1mtrainer.py 935 _run
+[1mresults = self._run_stage()
+[1mtrainer.py 976 _run_stage
+[1mself._run_sanity_check()
+[1mtrainer.py 1005 _run_sanity_check
+[1mval_loop.run()
+[1mutilities.py 177 _decorator
+[1mreturn loop_run(self, *args, **kwargs)
+[1mevaluation_loop.py 115 run
+[1mself._evaluation_step(batch, batch_idx, dataloader_idx)
+[1mevaluation_loop.py 375 _evaluation_step
+[1moutput = call._call_strategy_hook(trainer, hook_name, *step_kwargs.values())
+[1mcall.py 288 _call_strategy_hook
+[1moutput = fn(*args, **kwargs)
+[1mstrategy.py 378 validation_step
+[1mreturn self.model.validation_step(*args, **kwargs)
+[1mBaseModel.py 227 validation_step
+[1my_hat, y = self.get_pred_and_gt(batch)
+[1mBaseModel.py 105 get_pred_and_gt
+[1mx, y, doys = batch
+[1mValueError:
+[1mnot enough values to unpack (expected 3, got 2)

@@ -1,0 +1,28 @@
+Checkpoint loaded successfully from '/var/home/lornjaeger/distrobox/homes/dev/projects/WildfireSpreadTS/src/models/utae_paps_models/model.pth.tar'
+Using the following dataset split:
+Train years: [2018, 2019], Val years: [2020], Test years: [2021]
+Sanity Checking: 0it [00:00, ?it/s]
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1]
+   | Name               | Type                       | Params
+-------------------------------------------------------------------
+0  | loss               | BCEWithLogitsLoss          | 0
+1  | train_f1           | BinaryF1Score              | 0
+2  | val_f1             | BinaryF1Score              | 0
+3  | test_f1            | BinaryF1Score              | 0
+4  | test_avg_precision | BinaryAveragePrecision     | 0
+5  | val_avg_precision  | BinaryAveragePrecision     | 0
+6  | test_precision     | BinaryPrecision            | 0
+7  | test_recall        | BinaryRecall               | 0
+8  | test_iou           | BinaryJaccardIndex         | 0
+9  | conf_mat           | BinaryConfusionMatrix      | 0
+10 | test_pr_curve      | BinaryPrecisionRecallCurve | 0
+11 | model              | UTAE                       | 1.1 M
+-------------------------------------------------------------------
+1.1 M     Trainable params
+0         Non-trainable params
+1.1 M     Total params
+
