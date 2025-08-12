@@ -19,3 +19,7 @@ opencv-python==4.7.0.72
 scikit-learn==1.2.2
 segmentation-models-pytorch==0.3.2
 jsonargparse[signatures]==4.20.1
+
+# lorn additions
+transformers
+ml_collections

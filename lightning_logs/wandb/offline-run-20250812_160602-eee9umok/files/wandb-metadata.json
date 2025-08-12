@@ -1,0 +1,220 @@
+{
+    "os": "Linux-6.15.9-201.fc42.x86_64-x86_64-with-glibc2.41",
+    "python": "3.10.18",
+    "heartbeatAt": "2025-08-12T22:06:02.646277",
+    "startedAt": "2025-08-12T22:06:02.599329",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--config=cfgs/UTAE/all_features.yaml",
+        "--trainer=cfgs/trainer_multi_gpu.yaml",
+        "--data=cfgs/data_multitemporal_full_features.yaml",
+        "--seed_everything=57",
+        "--trainer.max_epochs=1000",
+        "--do_test=True",
+        "--data.data_dir",
+        "data/",
+        "--data.additional_data",
+        "true"
+    ],
+    "state": "running",
+    "program": "/home/lornjaeger/distrobox/homes/train/projects/WildfireSpreadTS/src/train.py",
+    "codePath": "src/train.py",
+    "git": {
+        "remote": "git@github.com:lorn-jaeger/wildfirets-training.git",
+        "commit": "b85c4e6510943f3a7b575cd566b000e2212467c3"
+    },
+    "email": "lornjaeger@proton.me",
+    "root": "/home/lornjaeger/distrobox/homes/train/projects/WildfireSpreadTS",
+    "host": "johnson-lab",
+    "username": "lornjaeger",
+    "executable": "/home/lornjaeger/distrobox/homes/train/.conda/envs/train/bin/python",
+    "cpu_count": 16,
+    "cpu_count_logical": 32,
+    "cpu_freq": {
+        "current": 2358.8212500000004,
+        "min": 1434.8419999999994,
+        "max": 4580.456000000002
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 1434.842,
+            "min": 1434.842,
+            "max": 4580.456
+        },
+        {
+            "current": 3635.729,
+            "min": 1434.842,
+            "max": 4580.456
+        },
+        {
+            "current": 1434.842,
+            "min": 1434.842,
+            "max": 4580.456
+        },
+        {
+            "current": 3630.764,
+            "min": 1434.842,
+            "max": 4580.456
+        },
+        {
+            "current": 1434.842,
+            "min": 1434.842,
+            "max": 4580.456
+        },
+        {
+            "current": 1434.842,
+            "min": 1434.842,
+            "max": 4580.456
+        },
+        {
+            "current": 4541.83,
+            "min": 1434.842,
+            "max": 4580.456
+        },
+        {
+            "current": 1434.842,
+            "min": 1434.842,
+            "max": 4580.456
+        },
+        {
+            "current": 1434.842,
+            "min": 1434.842,
+            "max": 4580.456
+        },
+        {
+            "current": 1434.842,
+            "min": 1434.842,
+            "max": 4580.456
+        },
+        {
+            "current": 1434.842,
+            "min": 1434.842,
+            "max": 4580.456
+        },
+        {
+            "current": 1434.842,
+            "min": 1434.842,
+            "max": 4580.456
+        },
+        {
+            "current": 2530.997,
+            "min": 1434.842,
+            "max": 4580.456
+        },
+        {
+            "current": 2519.039,
+            "min": 1434.842,
+            "max": 4580.456
+        },
+        {
+            "current": 3147.263,
+            "min": 1434.842,
+            "max": 4580.456
+        },
+        {
+            "current": 2515.788,
+            "min": 1434.842,
+            "max": 4580.456
+        },
+        {
+            "current": 4541.781,
+            "min": 1434.842,
+            "max": 4580.456
+        },
+        {
+            "current": 3627.854,
+            "min": 1434.842,
+            "max": 4580.456
+        },
+        {
+            "current": 1434.842,
+            "min": 1434.842,
+            "max": 4580.456
+        },
+        {
+            "current": 3624.633,
+            "min": 1434.842,
+            "max": 4580.456
+        },
+        {
+            "current": 1434.842,
+            "min": 1434.842,
+            "max": 4580.456
+        },
+        {
+            "current": 1434.842,
+            "min": 1434.842,
+            "max": 4580.456
+        },
+        {
+            "current": 1434.842,
+            "min": 1434.842,
+            "max": 4580.456
+        },
+        {
+            "current": 1434.842,
+            "min": 1434.842,
+            "max": 4580.456
+        },
+        {
+            "current": 2556.16,
+            "min": 1434.842,
+            "max": 4580.456
+        },
+        {
+            "current": 2583.85,
+            "min": 1434.842,
+            "max": 4580.456
+        },
+        {
+            "current": 2652.157,
+            "min": 1434.842,
+            "max": 4580.456
+        },
+        {
+            "current": 2603.856,
+            "min": 1434.842,
+            "max": 4580.456
+        },
+        {
+            "current": 1434.842,
+            "min": 1434.842,
+            "max": 4580.456
+        },
+        {
+            "current": 1434.842,
+            "min": 1434.842,
+            "max": 4580.456
+        },
+        {
+            "current": 1434.842,
+            "min": 1434.842,
+            "max": 4580.456
+        },
+        {
+            "current": 1434.842,
+            "min": 1434.842,
+            "max": 4580.456
+        }
+    ],
+    "disk": {
+        "total": 3575.3955078125,
+        "used": 3370.8035469055176
+    },
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "gpu_count": 2,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 4090",
+            "memory_total": 25757220864
+        },
+        {
+            "name": "NVIDIA GeForce RTX 4090",
+            "memory_total": 25757220864
+        }
+    ],
+    "memory": {
+        "total": 503.53125381469727
+    }
+}

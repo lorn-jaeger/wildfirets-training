@@ -1,0 +1,25 @@
+2025-08-12 16:06:02,600 INFO    MainThread:523446 [wandb_setup.py:_flush():76] Current SDK version is 0.15.3
+2025-08-12 16:06:02,600 INFO    MainThread:523446 [wandb_setup.py:_flush():76] Configure stats pid to 523446
+2025-08-12 16:06:02,600 INFO    MainThread:523446 [wandb_setup.py:_flush():76] Loading settings from /home/lornjaeger/distrobox/homes/train/.config/wandb/settings
+2025-08-12 16:06:02,600 INFO    MainThread:523446 [wandb_setup.py:_flush():76] Loading settings from /home/lornjaeger/distrobox/homes/train/projects/WildfireSpreadTS/wandb/settings
+2025-08-12 16:06:02,600 INFO    MainThread:523446 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2025-08-12 16:06:02,600 INFO    MainThread:523446 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2025-08-12 16:06:02,600 INFO    MainThread:523446 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'src/train.py', 'program': '/home/lornjaeger/distrobox/homes/train/projects/WildfireSpreadTS/src/train.py'}
+2025-08-12 16:06:02,600 INFO    MainThread:523446 [wandb_setup.py:_flush():76] Applying login settings: {'mode': 'offline'}
+2025-08-12 16:06:02,600 INFO    MainThread:523446 [wandb_init.py:_log_setup():507] Logging user logs to ./lightning_logs/wandb/offline-run-20250812_160602-eee9umok/logs/debug.log
+2025-08-12 16:06:02,600 INFO    MainThread:523446 [wandb_init.py:_log_setup():508] Logging internal logs to ./lightning_logs/wandb/offline-run-20250812_160602-eee9umok/logs/debug-internal.log
+2025-08-12 16:06:02,601 INFO    MainThread:523446 [wandb_init.py:init():547] calling init triggers
+2025-08-12 16:06:02,601 INFO    MainThread:523446 [wandb_init.py:init():554] wandb.init called with sweep_config: {}
+config: {}
+2025-08-12 16:06:02,601 INFO    MainThread:523446 [wandb_init.py:init():596] starting backend
+2025-08-12 16:06:02,601 INFO    MainThread:523446 [wandb_init.py:init():600] setting up manager
+2025-08-12 16:06:02,602 INFO    MainThread:523446 [backend.py:_multiprocessing_setup():106] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-08-12 16:06:02,603 INFO    MainThread:523446 [wandb_init.py:init():606] backend started and connected
+2025-08-12 16:06:02,604 INFO    MainThread:523446 [wandb_init.py:init():700] updated telemetry
+2025-08-12 16:06:02,608 INFO    MainThread:523446 [wandb_init.py:init():787] starting run threads in backend
+2025-08-12 16:06:06,974 INFO    MainThread:523446 [wandb_run.py:_console_start():2158] atexit reg
+2025-08-12 16:06:06,974 INFO    MainThread:523446 [wandb_run.py:_redirect():2013] redirect: SettingsConsole.WRAP_RAW
+2025-08-12 16:06:06,974 INFO    MainThread:523446 [wandb_run.py:_redirect():2078] Wrapping output streams.
+2025-08-12 16:06:06,974 INFO    MainThread:523446 [wandb_run.py:_redirect():2103] Redirects installed.
+2025-08-12 16:06:06,974 INFO    MainThread:523446 [wandb_init.py:init():829] run started, returning control to user process
+2025-08-12 16:06:14,082 INFO    MainThread:523446 [wandb_run.py:_config_callback():1286] config_cb None None {'n_channels': 40, 'flatten_temporal_dimension': False, 'pos_class_weight': 1002.2830515562459, 'loss_function': 'BCE', 'use_doy': True, 'crop_before_eval': False, 'required_img_size': None, 'alpha_focal': None, 'f1_threshold': None, 'encoder_weights': 'pastis'}
