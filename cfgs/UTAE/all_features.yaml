@@ -11,8 +11,9 @@ model:
     n_channels: 40
     flatten_temporal_dimension: false
     pos_class_weight: 10
-    loss_function: "BCE"
-    encoder_weights: pastis
+    loss_function: "Focal"
+    encoder_name: resnet18
+    encoder_weights: imagenet
 do_train: true
 do_test: true
-do_predict: false
+do_predict: true
