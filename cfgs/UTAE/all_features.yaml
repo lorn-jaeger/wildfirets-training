@@ -12,7 +12,6 @@ model:
     flatten_temporal_dimension: false
     pos_class_weight: 10
     loss_function: "Focal"
-    encoder_name: resnet18
     encoder_weights: imagenet
 do_train: true
 do_test: true
