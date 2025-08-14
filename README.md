@@ -1,3 +1,25 @@
+# Temp setup instructions. Will create a distrobox config that does all this on the lab pc by itself in a sec
+
+Create a distrobox with this init file and run ```distrobox assemble create --file path/to/file```
+
+```yaml
+[train]
+image=ghcr.io/ublue-os/fedora-toolbox:latest
+home="/home/lornjaeger/distrobox/homes/train"
+nvidia=true
+pull=true
+additional_packages='git conda python3.10'
+
+```
+
+After this clone this repo and So far I've tried using straight venvs as well as uv but neither handle the compiled code that torch needs on these GPUs so I'm using conda. 
+
+Then conda create -n train python=3.10 && conda init && conda activate train
+
+
+
+
+
 # README from the official repo
 
 # WildfireSpreadTS: A dataset of multi-modal time series for wildfire spread prediction
