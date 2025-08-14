@@ -2,7 +2,6 @@ from pytorch_lightning.utilities import rank_zero_only
 import torch
 from dataloader.FireSpreadDataModule import FireSpreadDataModule
 from pytorch_lightning.cli import LightningCLI
-from models import SMPModel, BaseModel, ConvLSTMLightning, LogisticRegression  # noqa
 from models import BaseModel
 import wandb
 import os
@@ -12,6 +11,7 @@ from dataloader.utils import get_means_stds_missing_values
 
 os.environ['HDF5_USE_FILE_LOCKING'] = 'FALSE'
 torch.set_float32_matmul_precision('high')
+torch.use_deterministic_algorithms(False)
 
 
 class MyLightningCLI(LightningCLI):
