@@ -1,6 +1,0 @@
-name: train
-channels:
-  - https://conda.anaconda.org/conda-forge
-dependencies:
-  - python=3.10
-prefix: /home/lornjaeger/distrobox/homes/train/.conda/envs/train
