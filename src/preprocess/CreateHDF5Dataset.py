@@ -21,19 +21,20 @@ args = parser.parse_args()
 os.environ["HDF5_USE_FILE_LOCKING"] = "FALSE"
 
 
-years = [2018, 2019, 2020, 2021]
+years = [2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023]
 
 dataset = FireSpreadDataset(data_dir=args.data_dir,
                             included_fire_years=years,
                             # the following args are irrelevant here, but need to be set
                             n_leading_observations=1, crop_side_length=128, load_from_hdf5=False, is_train=True,
                             remove_duplicate_features=False, stats_years=(2018, 2020))
+
 data_gen = dataset.get_generator_for_hdf5()
 
 
 base_dir = "/tmp"
 
-for y in [2018, 2019, 2020, 2021]:
+for y in [2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023]:
     target_dir = f"{args.target_dir}/{y}"
     Path(target_dir).mkdir(parents=True, exist_ok=True)
 
