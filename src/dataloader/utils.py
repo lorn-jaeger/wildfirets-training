@@ -1543,6 +1543,11 @@ def get_means_stds_missing_values(training_years: List[int]):
     means[features_to_not_standardize] = 0
     stds[features_to_not_standardize] = 1
 
+    if means.shape[0] == 23:
+        means = np.concatenate([means, np.array([0.0, 0.0], dtype=np.float32)])
+        stds = np.concatenate([stds, np.array([1.0, 1.0], dtype=np.float32)])
+        missing_values = np.concatenate([missing_values, np.array([0.0, 0.0], dtype=np.float32)])
+
     return means, stds, missing_values
 
 

@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import List, Optional
+from typing import List, Optional, Literal
 
 import rasterio
 from torch.utils.data import Dataset
@@ -15,10 +15,16 @@ from datetime import datetime
 
 
 class FireSpreadDataset(Dataset):
+
+    AF_IDX = 22                 # active fire value channel
+    PM25_IDX = 23               # NEW: PM2.5 scalar layer 
+    PM25_FLAG_IDX = 24          # NEW: companion quality/flag
+
     def __init__(self, data_dir: str, included_fire_years: List[int], n_leading_observations: int,
                  crop_side_length: int, load_from_hdf5: bool, is_train: bool, remove_duplicate_features: bool,
                  stats_years: List[int], n_leading_observations_test_adjustment: Optional[int] = None, 
-                 features_to_keep: Optional[List[int]] = None, return_doy: bool = False, is_pad: Optional[bool] = False):
+                 features_to_keep: Optional[List[int]] = None, return_doy: bool = False, is_pad: Optional[bool] = False,
+                 target: Literal["fire", "pm25"] = "pm25", pm25_threshold: float = 100.0):
         """_summary_
 
         Args:
@@ -52,6 +58,9 @@ class FireSpreadDataset(Dataset):
         self.included_fire_years = included_fire_years
         self.data_dir = data_dir
         self.is_pad = is_pad
+
+        self.target = target
+        self.pm25_threshold = pm25_threshold
 
         self.validate_inputs()
 
@@ -147,7 +156,10 @@ class FireSpreadDataset(Dataset):
                     doys = torch.Tensor(doys)
             x, y = np.split(imgs, [-1], axis=0)
             # Last image's active fire mask is used as label, rest is input data
-            y = y[0, -1, ...]
+            if self.target == "pm25":
+                y = y[0, self.PM25_IDX, ...]
+            else:
+                y = y[0, self.AF_IDX, ...]
         else:
             imgs_to_load = self.imgs_per_fire[found_fire_year][found_fire_name][in_fire_index:end_index]
             imgs = []
@@ -155,7 +167,11 @@ class FireSpreadDataset(Dataset):
                 with rasterio.open(img_path, 'r') as ds:
                     imgs.append(ds.read())
             x = np.stack(imgs[:-1], axis=0)
-            y = imgs[-1][-1, ...]
+
+            if self.target == "pm25":
+                y = imgs[-1][self.PM25_IDX, ...]
+            else:
+                y = imgs[-1][self.AF_IDX, ...]
 
         if self.return_doy:
             return x, y, doys
@@ -315,16 +331,14 @@ class FireSpreadDataset(Dataset):
         # Preprocessing that has been done in HDF files already
         if not self.load_from_hdf5:
 
-            # Active fire masks have nans where no detections occur. In general, we want to replace NaNs with
-            # the mean of the respective feature. Since the NaNs here don't represent missing values, we replace
-            # them with 0 instead.
-            x[:, -1, ...] = torch.nan_to_num(x[:, -1, ...], nan=0)
+            x[:, self.AF_IDX, ...] = torch.nan_to_num(x[:, self.AF_IDX, ...], nan=0)
+            x[:, self.AF_IDX, ...] = torch.floor_divide(x[:, self.AF_IDX, ...], 100)
             y = torch.nan_to_num(y, nan=0.0)
 
-            # Turn active fire detection time from hhmm to hh.
-            x[:, -1, ...] = torch.floor_divide(x[:, -1, ...], 100)
-
-        y = (y > 0).long()
+        if self.target == "pm25":
+            y = (y >= self.pm25_threshold).long()
+        else:
+            y = (y > 0).long()
 
         # Augmentation has to come before normalization, because we have to correct the angle features when we change
         # the orientation of the image.
@@ -343,12 +357,13 @@ class FireSpreadDataset(Dataset):
             torch.deg2rad(x[:, self.indices_of_degree_features, ...]))
 
         # Compute binary mask of active fire pixels before normalization changes what 0 means. 
-        binary_af_mask = (x[:, -1:, ...] > 0).float()
+        binary_af_mask = (x[:, self.AF_IDX:self.AF_IDX+1, ...] > 0).float()
+        binary_pm25_mask = (x[:, self.PM25_IDX:self.PM25_IDX+1, ...] >= self.pm25_threshold).float()
 
         x = self.standardize_features(x)
 
         # Adds the binary fire mask as an additional channel to the input data.
-        x = torch.cat([x, binary_af_mask], axis=1)
+        x = torch.cat([x, binary_af_mask, binary_pm25_mask], axis=1)
 
         # Replace NaN values with 0, thereby essentially setting them to the mean of the respective feature.
         x = torch.nan_to_num(x, nan=0.0)
@@ -382,7 +397,7 @@ class FireSpreadDataset(Dataset):
     
         # Need square crop to prevent rotation from creating/destroying data at the borders, due to uneven side lengths.
         # Try several crops, prefer the ones with most fire pixels in output, followed by most fire_pixels in input
-        best_n_fire_pixels = -1
+        best_n = -1
         best_crop = (None, None)
 
         for i in range(10):
@@ -393,16 +408,18 @@ class FireSpreadDataset(Dataset):
             y_crop = TF.crop(
                 y, top, left, self.crop_side_length, self.crop_side_length)
 
-            # We really care about having fire pixels in the target. But if we don't find any there,
-            # we care about fire pixels in the input, to learn to predict that no new observations will be made,
-            # even though previous days had active fires.
-            n_fire_pixels = x_crop[:, -1, ...].mean() + \
-                1000 * y_crop.float().mean()
-            if n_fire_pixels > best_n_fire_pixels:
-                best_n_fire_pixels = n_fire_pixels
+            if self.target == "pm25":
+                input_signal = (x_crop[:, self.PM25_IDX, ...] >= self.pm25_threshold).float().mean()
+            else:
+                input_signal = (x_crop[:, self.AF_IDX, ...] > 0).float().mean()
+
+            score = input_signal + 1000 * y_crop.float().mean()
+            if score > best_n:
+                best_n = score
                 best_crop = (x_crop, y_crop)
 
-        x, y = best_crop
+                x, y = best_crop
+
 
         hflip = bool(np.random.random() > 0.5)
         vflip = bool(np.random.random() > 0.5)
@@ -490,6 +507,15 @@ class FireSpreadDataset(Dataset):
         return torch.cat([x_dynamic_only, x_last_day], axis=0)
 
     @staticmethod
+    def _final_per_timestep_channel_count() -> int:
+        """
+        Count channels after preprocessing but before temporal flattening:
+        = raw 25 (existing 23 + PM25 + PM25_FLAG) + 2 binary masks + 16 extra from landcover one-hot replacement
+        """
+        n_raw = len(FireSpreadDataset.map_channel_index_to_features())  # should be 25 now
+        return n_raw + 2 + 16
+
+    @staticmethod
     def get_static_and_dynamic_feature_ids():
         """_summary_ Returns the indices of static and dynamic features.
         Static features include topographical features and one-hot encoded land cover classes.
@@ -497,8 +523,10 @@ class FireSpreadDataset(Dataset):
         Returns:
             _type_: _description_ Tuple of lists of integers, first list contains static feature indices, second list contains dynamic feature indices.
         """
-        static_feature_ids = [12,13,14] + list(range(16,33))
-        dynamic_feature_ids = list(range(12)) + [15] + list(range(33,40))
+
+        n_final = FireSpreadDataset._final_per_timestep_channel_count()
+        static_feature_ids = [12, 13, 14] + list(range(16, 33))
+        dynamic_feature_ids = [i for i in range(n_final) if i not in static_feature_ids]
         return static_feature_ids, dynamic_feature_ids
 
     @staticmethod
@@ -593,7 +621,9 @@ class FireSpreadDataset(Dataset):
                 19: 'forecast wind direction',
                 20: 'forecast temperature',
                 21: 'forecast specific humidity',
-                22: 'active fire'}
+                22: 'active fire',
+                23: 'pm25',              
+                24: 'pm25_flag'}
 
     def get_generator_for_hdf5(self):
         """_summary_ Creates a generator that is used to turn the dataset into HDF5 files. It applies a few 
@@ -624,8 +654,8 @@ class FireSpreadDataset(Dataset):
                 # Active fire masks have nans where no detections occur. In general, we want to replace NaNs with
                 # the mean of the respective feature. Since the NaNs here don't represent missing values, we replace
                 # them with 0 instead.
-                x[:, -1, ...] = np.nan_to_num(x[:, -1, ...], nan=0)
+                x[:, self.AF_IDX, ...] = np.nan_to_num(x[:, self.AF_IDX, ...], nan=0)
 
                 # Turn active fire detection time from hhmm to hh.
-                x[:, -1, ...] = np.floor_divide(x[:, -1, ...], 100)
+                x[:, self.AF_IDX, ...] = np.floor_divide(x[:, self.AF_IDX, ...], 100)
                 yield year, fire_name, img_dates, lnglat, x

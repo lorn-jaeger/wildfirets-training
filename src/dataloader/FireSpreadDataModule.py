@@ -6,7 +6,7 @@ from pytorch_lightning import LightningDataModule
 from torch.utils.data import Subset, DataLoader
 import glob
 from .FireSpreadDataset import FireSpreadDataset
-from typing import List, Optional, Union
+from typing import List, Optional, Union, Literal
 
 
 class FireSpreadDataModule(LightningDataModule):
@@ -17,7 +17,7 @@ class FireSpreadDataModule(LightningDataModule):
                  is_pad: Optional[bool] = False,
                  features_to_keep: Union[Optional[List[int]], str] = None, return_doy: bool = False,
                  data_fold_id: int = 0, non_outlier_indices_path: Optional[str] = None, filter_ignition_train: Optional[bool] = False, filter_ignition_val_test: Optional[bool] = False,
-                 ignition_only_train: Optional[bool] = False, ignition_only_val_test: Optional[bool] = False, additional_data: Optional[bool] = False, *args, **kwargs):
+                 ignition_only_train: Optional[bool] = False, ignition_only_val_test: Optional[bool] = False, additional_data: Optional[bool] = False, target: Literal["fire","pm25"] = "pm25", pm25_threshold: float = 100.0, *args, **kwargs):
         """_summary_ Data module for loading the WildfireSpreadTS dataset.
 
         Args:
@@ -60,6 +60,9 @@ class FireSpreadDataModule(LightningDataModule):
         self.ignition_only_train = ignition_only_train
         self.ignition_only_val_test = ignition_only_val_test
         self.additional_data = additional_data
+
+        self.target = target
+        self.pm25_threshold = pm25_threshold
 
 
     def keep_ignition(self, dataset):
@@ -117,7 +120,8 @@ class FireSpreadDataModule(LightningDataModule):
                                                load_from_hdf5=self.load_from_hdf5, is_train=True,
                                                remove_duplicate_features=self.remove_duplicate_features,
                                                features_to_keep=self.features_to_keep, return_doy=self.return_doy,
-                                               stats_years=train_years, is_pad=self.is_pad)
+                                               stats_years=train_years, is_pad=self.is_pad, target=self.target, pm25_threshold=self.pm25_threshold
+                                               )
         
         if self.non_outlier_indices_path is not None:
             non_outlier_indices = np.load(self.non_outlier_indices_path).tolist()
@@ -138,7 +142,7 @@ class FireSpreadDataModule(LightningDataModule):
                                              load_from_hdf5=self.load_from_hdf5, is_train=True,
                                              remove_duplicate_features=self.remove_duplicate_features,
                                              features_to_keep=self.features_to_keep, return_doy=self.return_doy,
-                                             stats_years=train_years, is_pad=self.is_pad)
+                                             stats_years=train_years, is_pad=self.is_pad, target=self.target, pm25_threshold=self.pm25_threshold)
         self.test_dataset = FireSpreadDataset(data_dir=self.data_dir, included_fire_years=test_years,
                                               n_leading_observations=self.n_leading_observations,
                                               n_leading_observations_test_adjustment=self.n_leading_observations_test_adjustment,
@@ -146,7 +150,7 @@ class FireSpreadDataModule(LightningDataModule):
                                               load_from_hdf5=self.load_from_hdf5, is_train=False,
                                               remove_duplicate_features=self.remove_duplicate_features,
                                               features_to_keep=self.features_to_keep, return_doy=self.return_doy,
-                                              stats_years=train_years, is_pad=self.is_pad)
+                                              stats_years=train_years, is_pad=self.is_pad, target=self.target, pm25_threshold=self.pm25_threshold)
 
         if self.filter_ignition_val_test:
             self.val_dataset = self.filter_dataset(self.val_dataset)

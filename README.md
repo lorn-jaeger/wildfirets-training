@@ -16,6 +16,8 @@ After this clone this repo and So far I've tried using straight venvs as well as
 
 Then conda create -n train python=3.10 && conda init && conda activate train
 
+If you get an error saying something about /lib64/libcuda.so being too short just delete it and make a symlink to /lib64/libcuda.so.1
+
 
 
 
